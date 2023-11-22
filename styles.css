@@ -11,6 +11,14 @@ html {
   font-family: sans-serif;
 }
 
+ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+
 /* =============== HEADER =============== */
 
 .nav{
@@ -91,7 +99,7 @@ html {
 
   .desktop_shopify_logo {
     display: block;
-    width: 16rem;
+    width: 8rem;
     height: 2.5rem;
   }
 
@@ -139,5 +147,106 @@ html {
     font-size: 1rem;
     padding: 10px;
     border-radius: 10px;
+    color: #616161;
   }
+}
+
+/* user dropdown */
+
+.user_dropdown {
+  max-width: 320px;
+  margin: .5rem auto;
+  background-color: #fff;
+  border-radius: 10px;
+}
+
+.dropdown_user_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #E1E1E1;
+  border-radius: 10px;
+  height: 2.2rem;
+}
+
+.dropdown_user_name_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dropdown_user_icon{
+  color: #1A1A1A;
+  background-color: #36FBA1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: fit-content;
+  padding: .5rem;
+  border-radius: 5px;
+}
+
+.dropdown_user_name {
+  font-weight: 600;
+  margin-left: .5rem;
+  color: #303030;
+}
+
+.user_mark_svg {
+  width: 30px;
+}
+
+.user_mark_svg circle {
+  fill: #E1E1E1;
+}
+
+.dropdown_stores {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  color: #303030;
+  height: 2.2rem;
+  margin-top: .5rem;
+  border-bottom: 1px solid #E1E1E1;
+}
+
+.dropdown_stores_logo {
+  width: 30px;
+  margin-right: .8rem;
+}
+
+.dropdown_stores_logo path {
+  fill: #303030;
+}
+
+.dropdown_user_list ul a{
+  color: #303030;
+  padding: .5rem;
+}
+
+.dropdown_user_account {
+  padding-top: .2rem;
+  color: #303030;
+  border-top: 1px solid #E1E1E1;
+}
+
+.user_account_email_container {
+  padding: .5rem 0;
+}
+
+.user_account_name {
+  font-weight: 600;
+  color: #303030;
+}
+
+.user_account_email {
+  color: #616161;
+}
+
+.manage_account_container {
+  padding: .5rem 0;
+}
+
+.logout_container {
+  padding: .5rem 0;
 }
