@@ -1,0 +1,74 @@
+/* =============== BASE =============== */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 14px;
+  font-family: sans-serif;
+}
+
+/* =============== HEADER =============== */
+
+.nav{
+  background-color: #1A1A1A;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.shopify_logo{
+  width: 35px;
+  height: 35px;
+}
+
+.desktop_shopify_logo{
+  display: none;
+}
+
+.search_field{
+  background-color: #616161;
+  border-radius: 10px;
+  color: #B5B5BF;
+}
+/* Styling for the input box */
+.search-input {
+  padding: 10px 35px;
+  color: #B5B5BF;
+  border: 1px solid #B5B5BF;
+  border-radius: 10px;
+  width: 14rem;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%23212121" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" /></svg>') no-repeat 1% center;
+  background-size: 30px 25px; /* Adjust size as needed */
+  /* filter: brightness(500%); Adjust the brightness to change the color */
+}
+
+.search-input:hover{
+  border: 2px solid #B5B5BF;
+}
+
+.user_icon{
+  color: white;
+  background-color: #36FBA1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: fit-content;
+  padding: .5rem;
+  border-radius: 5px;
+}
+
+.user_container{
+  display: flex;
+  justify-content: space-between;
+}
+
+.notification_bell {
+  width: 25px;
+  height: 25px;
+  margin-right: 1rem;
+}
