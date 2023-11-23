@@ -73,6 +73,10 @@ a {
   margin-right: 1rem;
 }
 
+.notification_bell_container {
+  cursor: pointer;
+}
+
 .user_info_container {
   display: flex;
   justify-content: center;
@@ -128,7 +132,6 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
-    cursor: pointer;
   }
 
   .notification_bell {
@@ -337,7 +340,7 @@ a {
   background-color: #fff;
   border-radius: 10px;
   padding: 1.5rem;
-  /* display: none; */
+  display: none;
   position: fixed;
   top: 6rem;
   right: 1.5rem;
