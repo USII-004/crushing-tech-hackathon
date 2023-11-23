@@ -66,15 +66,24 @@ a {
 .user_container{
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .notification_bell {
   width: 25px;
-  margin-right: 1rem;
 }
 
 .notification_bell_container {
   cursor: pointer;
+  background-color: #1A1A1A;
+  width: max-content;
+  border-radius: 10px;
+  height: 3rem;
+  padding: 0 3px;
+  margin-right: .5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .user_info_container {
@@ -82,6 +91,8 @@ a {
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  border: 3px solid #1A1A1A;
+  border-radius: 10px;
 }
 
 .user_name {
@@ -124,14 +135,7 @@ a {
   }
 
   .notification_bell_container {
-    background-color: #616161;
-    width: max-content;
-    border-radius: 10px;
-    padding: 5px;
-    margin-right: 1rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    background-color: #303030;
   }
 
   .notification_bell {
@@ -140,8 +144,9 @@ a {
   }
 
   .user_info_container {
-    background-color: #616161;
+    background-color: #303030;
     border-radius: 10px;
+    border: 3px solid #1A1A1A;
   }
 
   .user_name {
@@ -392,4 +397,38 @@ a {
   font-size: 1.1rem;
   font-weight: 600;
   text-align: center;
+}
+
+/* =============== HEADER =============== */
+
+/* select plan */
+
+.select_plan_container {
+  width: 100%;
+  margin: 2rem auto;
+  background-color: #1A1A1A;
+  color: #E3E3E3;
+  display: flex;
+  padding: 1.2rem;
+  justify-content: space-between;
+}
+
+.select_plan_text {
+  font-size: 1.2rem;
+}
+
+.mobile_button {
+  padding: 7px 14px;
+  font-size: 1.2rem;
+  border-radius: 7px;
+  border: 1px solid #E3E3E3;
+  margin-top: 1.5rem;
+}
+
+.desktop_button {
+  display: none;
+}
+
+.select_plan_close_icon {
+  width: 2rem;
 }

@@ -9,6 +9,8 @@ let displayUserDropdown = false
 
 function userDropdownDisplay() {
   userDropdown.style.display = displayUserDropdown ? 'block' : 'none';
+  userIcon.style.border = displayUserDropdown ? '3px solid #616161' : ''
+  userIcon.style.backgroundColor = displayUserDropdown ? '#616161' : '';
 }
 
 userIcon.addEventListener('click', () => {
@@ -33,6 +35,7 @@ let displayNotificationDropdown = false;
 
 function notificationDropdownDisplay() {
   notificationDropdown.style.display = displayNotificationDropdown ? 'block' : 'none';
+  notificationBell.style.backgroundColor = displayNotificationDropdown ? '#616161' : '';
 }
 
 notificationBell.addEventListener('click', () => {
