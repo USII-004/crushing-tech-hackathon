@@ -1,3 +1,6 @@
+/* =============== GOGGLE FONT =============== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
 /* =============== BASE =============== */
 * {
   box-sizing: border-box;
@@ -8,7 +11,7 @@
 html {
   scroll-behavior: smooth;
   font-size: 12px;
-  font-family: sans-serif;
+  font-family: 'Inter', sans-serif;
 }
 
 body {
@@ -487,11 +490,9 @@ a {
   align-items: start;
 }
 
-/* .style_guide_heading {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-} */
+.style_guide_heading {
+  font-size: 1.1rem;
+}
 
 .style_guide_title {
   font-size: 1.2rem;
@@ -546,4 +547,15 @@ a {
 
 .collapse_icon_open path {
   fill: #1A1A1A;
+}
+
+/* desktop style guide */ 
+@media(min-width: 992px) {
+  .style_guide_container {
+    max-width: 800px;
+    border-radius: 10px;
+    padding: 1rem;
+    margin: 2rem auto;
+    /* align-items: center; */
+  }
 }
