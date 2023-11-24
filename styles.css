@@ -399,7 +399,7 @@ a {
   text-align: center;
 }
 
-/* =============== HEADER =============== */
+/* =============== MAIN =============== */
 
 /* select plan */
 
@@ -417,6 +417,12 @@ a {
   font-size: 1.2rem;
 }
 
+.select_plan_button {
+  display: flex;
+  justify-content: space-between;
+  /* align-items: center; */
+}
+
 .mobile_button {
   padding: 7px 14px;
   font-size: 1.2rem;
@@ -431,4 +437,41 @@ a {
 
 .select_plan_close_icon {
   width: 2rem;
+}
+
+/* desktop select plan */ 
+@media(min-width: 992px) {
+  .select_plan_container {
+    max-width: 800px;
+    border-radius: 10px;
+    padding: 2rem;
+    align-items: center;
+  }
+
+  .select_plan_text {
+    font-size: 1.1rem;
+  }
+
+  .mobile_button {
+    display: none;
+  }
+
+  .select_plan_button {
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: center;
+  }
+
+  .desktop_button {
+    display: block;
+    padding: 7px 14px;
+    font-size: 1.1rem;
+    border-radius: 7px;
+    border: 1px solid #E3E3E3;
+    margin: 0 1.2rem;
+  }
+
+  .select_plan_close_icon {
+    width: 3.2rem;
+  }
 }
