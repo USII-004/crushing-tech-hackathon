@@ -50,6 +50,24 @@ notificationBell.addEventListener('click', () => {
   }
 })
 
+/* OPEN/COLLAPSE STYLE GUIDE CONTENT */
+
+const openContent = document.getElementById('collapse-icon-open');
+const closeContent = document.getElementById('collapse-icon-close');
+const styleGuideContent = document.getElementById('style-guide-content-container');
+
+openContent.addEventListener('click', () => {
+  styleGuideContent.style.display = 'block';
+  openContent.style.display = 'none';
+  closeContent.style.display = 'block'
+})
+
+closeContent.addEventListener('click', () => {
+  styleGuideContent.style.display = 'none';
+  openContent.style.display = 'block';
+  closeContent.style.display = 'none'
+})
+
 /*ACCORDION*/
 
 // JavaScript to toggle the active class

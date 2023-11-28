@@ -555,10 +555,11 @@ header {
   margin-top: 1rem;
   display: flex;
   align-items: center;
+  font-size: 1rem;
 }
 
 .progress_bar_container {
-  width: 5rem;
+  width: 6rem;
   background-color: #E1E1E1;
   border-radius: 8px;
   overflow: hidden;
@@ -581,8 +582,9 @@ header {
 
 .collapse_icon_close {
   width: 100%;
-  display: block;
+  display: none;
   height: 1.7rem;
+  cursor: pointer;
 }
 
 .collapse_icon_close path {
@@ -591,8 +593,9 @@ header {
 
 .collapse_icon_open {
   width: 100%;
-  display: none;
+  display: block;
   height: 1.7rem;
+  cursor: pointer;
 }
 
 .collapse_icon_open path {
@@ -615,6 +618,7 @@ header {
 
 .style_guide_content_container {
   padding-top: 1.4rem;
+  display: none;
 }
 
 .accordion-item {
