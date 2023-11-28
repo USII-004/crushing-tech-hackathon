@@ -49,3 +49,13 @@ notificationBell.addEventListener('click', () => {
     notificationDropdownDisplay()
   }
 })
+
+/*ACCORDION*/
+
+// JavaScript to toggle the active class
+document.querySelectorAll('.accordion-header').forEach(function(header) {
+  header.addEventListener('click', function() {
+      var item = this.parentElement;
+      item.classList.toggle('active');
+  });
+});

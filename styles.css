@@ -630,10 +630,6 @@ header {
   background-color: #F1F1F1;
 }
 
-.accordion-item:focus {
-  background-color: #F1F1F1;
-}
-
 .accordion-header {
   /* background-color: #f1f1f1; */
   /* padding: 10px; */
@@ -644,6 +640,7 @@ header {
 
 .accordion_svg {
   width: 2rem;
+  height: 2rem;
   margin-right: .7rem;
 }
 
@@ -659,10 +656,17 @@ header {
 }
 
 .accordion-content {
-  display: flex;
-  padding: .7rem 2.7rem;
+  display: none;
   color: #616161;
+  align-items: start;
+  justify-content: space-between;
+  position: relative;
+  /* height: 8rem; */
   /* font-size: 1.1rem; */
+}
+
+.accordion_main_content {
+  margin: .7rem 2.7rem;
 }
 
 .external_link {
@@ -693,5 +697,18 @@ header {
 
 /* Show content when item is active */
 .active .accordion-content {
-  display: block;
+  display: flex;
+}
+
+@media(min-width: 992px) {
+  .extra_desktop_view {
+    display: flex;
+    align-items: start;
+    width: 13rem;
+    height: 10rem;
+    position: relative;
+    top: -1.8rem;
+    /* right: 2.5rem; */
+    margin-left: 4rem;
+  }
 }
