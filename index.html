@@ -176,24 +176,60 @@
 
     <!-- style guide -->
     <div class="style_guide_container">
-      <div class="style_guide_heading">
-        <h3 class="style_guide_title">Style Guide</h3>
-        <p class="style_guide_subheading">Use this personalized guide to get your store up and running.</p>
-        <div class="progress_container">
-          <p class="progress_count">1/5 completed</p>
-          <div class="progress_bar_container">
-            <div class="progress_bar" id="progress-bar"></div>
+      <div class="style_guide_heading_container">
+        <div class="style_guide_heading">
+          <h3 class="style_guide_title">Style Guide</h3>
+          <p class="style_guide_subheading">Use this personalized guide to get your store up and running.</p>
+          <div class="progress_container">
+            <p class="progress_count">1/5 completed</p>
+            <div class="progress_bar_container">
+              <div class="progress_bar" id="progress-bar"></div>
+            </div>
           </div>
         </div>
+        <div class="style_guide_collapse_icon">
+          <svg width="41" height="40" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="collapse_icon_open">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M6.21967 8.46967C6.51256 8.17678 6.98744 8.17678 7.28033 8.46967L10.75 11.9393L14.2197 8.46967C14.5126 8.17678 14.9874 8.17678 15.2803 8.46967C15.5732 8.76256 15.5732 9.23744 15.2803 9.53033L11.2803 13.5303C10.9874 13.8232 10.5126 13.8232 10.2197 13.5303L6.21967 9.53033C5.92678 9.23744 5.92678 8.76256 6.21967 8.46967Z" fill="#fff"/>
+          </svg>
+            
+          <svg width="41" height="40" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="collapse_icon_close">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M15.0303 12.2803C14.7374 12.5732 14.2626 12.5732 13.9697 12.2803L10.5 8.81066L7.03033 12.2803C6.73744 12.5732 6.26256 12.5732 5.96967 12.2803C5.67678 11.9874 5.67678 11.5126 5.96967 11.2197L9.96967 7.21967C10.2626 6.92678 10.7374 6.92678 11.0303 7.21967L15.0303 11.2197C15.3232 11.5126 15.3232 11.9874 15.0303 12.2803Z" fill="#fff"/>
+          </svg>      
+        </div>
       </div>
-      <div class="style_guide_collapse_icon">
-        <svg width="41" height="40" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="collapse_icon_open">
-          <path fill-rule="evenodd" clip-rule="evenodd" d="M6.21967 8.46967C6.51256 8.17678 6.98744 8.17678 7.28033 8.46967L10.75 11.9393L14.2197 8.46967C14.5126 8.17678 14.9874 8.17678 15.2803 8.46967C15.5732 8.76256 15.5732 9.23744 15.2803 9.53033L11.2803 13.5303C10.9874 13.8232 10.5126 13.8232 10.2197 13.5303L6.21967 9.53033C5.92678 9.23744 5.92678 8.76256 6.21967 8.46967Z" fill="#fff"/>
-        </svg>
-          
-        <svg width="41" height="40" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="collapse_icon_close">
-          <path fill-rule="evenodd" clip-rule="evenodd" d="M15.0303 12.2803C14.7374 12.5732 14.2626 12.5732 13.9697 12.2803L10.5 8.81066L7.03033 12.2803C6.73744 12.5732 6.26256 12.5732 5.96967 12.2803C5.67678 11.9874 5.67678 11.5126 5.96967 11.2197L9.96967 7.21967C10.2626 6.92678 10.7374 6.92678 11.0303 7.21967L15.0303 11.2197C15.3232 11.5126 15.3232 11.9874 15.0303 12.2803Z" fill="#fff"/>
-        </svg>      
+
+      <div class="style_guide_content_container">
+        <ul class="style_guide_accordion">
+          <li class="accordion-item">
+              <div class="accordion-header">
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 32 32" fill="none" class="accordion_svg">
+                  <circle cx="16" cy="16" r="12" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4 6" />
+                </svg>
+                <p class="accordion_title">Customize your online store</p>
+              </div>
+              <div class="accordion-content">
+                <div class="main_content">
+                  <p>Choose a theme and add your logo, colors, and images to reflect your brand. <a href="#" class="external_link">Learn more</a></p>
+                  <button class="action_btn">Customize theme</button>
+                </div>
+                <div class="extra_desktop_view">
+                  <img src="https://crushingit.tech/hackathon-assets/customise-store.png" alt="customize store png" class="desktop_img">
+                </div>
+              </div>
+          </li>
+          <li class="accordion-item">
+              <div class="accordion-header">Item 2</div>
+              <div class="accordion-content">
+                  <p>Content for Item 2 goes here.</p>
+              </div>
+          </li>
+          <li class="accordion-item">
+              <div class="accordion-header">Item 3</div>
+              <div class="accordion-content">
+                  <p>Content for Item 3 goes here.</p>
+              </div>
+          </li>
+        </ul>
       </div>
     </div>
   </main>
