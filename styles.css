@@ -91,6 +91,7 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: all 200ms ease-in;
 }
 
 .notification_bell_container:hover {
@@ -106,6 +107,7 @@ header {
 
 .notification_bell_container:focus {
   outline: 2px solid #005BD3;
+  outline-offset: 1px;
 }
 
 .user_info_container {
@@ -118,6 +120,7 @@ header {
   border-radius: 8px;
   height: 32px;
   gap: 8px;
+  transition: all 200ms ease-in;
 }
 
 .user_info_container:hover {
@@ -133,6 +136,7 @@ header {
 
 .user_info_container:focus {
   outline: 2px solid #005BD3;
+  outline-offset: 1px;
 } 
 
 .user_name {
@@ -284,7 +288,7 @@ header {
 }
 
 .dropdown_stores:focus {
-  border: 1px solid #005BD3;
+  outline: 1px solid #005BD3;
 }
 
 .dropdown_stores_logo {
@@ -312,7 +316,7 @@ header {
 }
 
 .dropdown_user_list ul li:focus {
-  border: 1px solid #005BD3;
+  outline: 2px solid #005BD3;
 }
 
 .dropdown_user_account {
@@ -335,7 +339,7 @@ header {
 }
 
 .user_account_email_container:focus {
-  border: 1px solid #005BD3;
+  outline: 2px solid #005BD3;
 }
 
 .user_account_name {
@@ -362,7 +366,7 @@ header {
 }
 
 .manage_account_container:focus {
-  border: 1px solid #005BD3;
+  outline: 2px solid #005BD3;
 }
 
 .logout_container {
@@ -582,7 +586,7 @@ header {
 
 .collapse_icon_close {
   width: 100%;
-  display: none;
+  display: block;
   height: 1.7rem;
   cursor: pointer;
 }
@@ -593,7 +597,7 @@ header {
 
 .collapse_icon_open {
   width: 100%;
-  display: block;
+  display: none;
   height: 1.7rem;
   cursor: pointer;
 }
@@ -605,7 +609,7 @@ header {
 /* desktop style guide heading */ 
 
 @media(min-width: 992px) {
-
+  
   .style_guide_container {
     max-width: 800px;
     border-radius: 8px;
@@ -618,7 +622,7 @@ header {
 
 .style_guide_content_container {
   padding-top: 1.4rem;
-  display: none;
+  display: block;
 }
 
 .accordion-item {
@@ -702,6 +706,10 @@ header {
 /* Show content when item is active */
 .active .accordion-content {
   display: flex;
+}
+
+.active {
+  background-color: #F1F1F1;
 }
 
 @media(min-width: 992px) {

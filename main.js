@@ -5,7 +5,7 @@
 const userIcon = document.getElementById('user-info-container');
 const userDropdown = document.getElementById('user-dropdown');
 
-let displayUserDropdown = false
+let displayUserDropdown = false;
 
 function userDropdownDisplay() {
   userDropdown.style.display = displayUserDropdown ? 'block' : 'none';
