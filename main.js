@@ -71,9 +71,78 @@ closeContent.addEventListener('click', () => {
 /*ACCORDION*/
 
 // JavaScript to toggle the active class
-document.querySelectorAll('.accordion-header').forEach(function(header) {
+const accordionHeader = document.querySelectorAll('.accordion_header');
+
+accordionHeader.forEach(function(header) {
   header.addEventListener('click', function() {
-      var item = this.parentElement;
-      item.classList.toggle('active');
+    accordionHeader.forEach(elem => elem.parentElement.classList.remove('active'));
+    var item = this.parentElement;
+    item.classList.toggle('active');
   });
+});
+
+// change the accordion svg icons
+const HIDDEN_CLASS = 'hidden';
+const MARKED_AS_DONE_CLASS = 'checkbox_done';
+
+// Selecting NodeLists
+const accordionNotCompletedSvg = document.querySelectorAll('.accordion_not_completed_svg');
+const accordionLoadingSvg = document.querySelectorAll('.accordion_loading_svg');
+const accordionCompletedSvg = document.querySelectorAll('.accordion_completed_svg');
+
+function handleMarkAsDone(event) {
+  // Get the parent element of the button clicked
+  const parentElement = event.target.closest('.accordion_item');
+
+  // Find the SVG elements within the parent element
+  const notCompletedSvg = parentElement.querySelector('.accordion_not_completed_svg');
+  const loadingSvg = parentElement.querySelector('.accordion_loading_svg');
+  const completedSvg = parentElement.querySelector('.accordion_completed_svg');
+
+  // Add and remove the 'hidden' class as needed
+  notCompletedSvg.classList.add(HIDDEN_CLASS);
+  loadingSvg.classList.remove(HIDDEN_CLASS);
+
+  setTimeout(() => {
+    loadingSvg.classList.add(HIDDEN_CLASS);
+    completedSvg.classList.remove(HIDDEN_CLASS);
+  }, 3000);
+
+  parentElement.classList.add(MARKED_AS_DONE_CLASS)
+}
+
+function handleMarkAsNotDone(event) {
+  // Get the parent element of the button clicked
+  const parentElement = event.target.closest('.accordion_item');
+
+  // Find the SVG elements within the parent element
+  const notCompletedSvg = parentElement.querySelector('.accordion_not_completed_svg');
+  const loadingSvg = parentElement.querySelector('.accordion_loading_svg');
+  const completedSvg = parentElement.querySelector('.accordion_completed_svg');
+
+  completedSvg.classList.add(HIDDEN_CLASS);
+  loadingSvg.classList.remove(HIDDEN_CLASS);
+
+  setTimeout(() => {
+    loadingSvg.classList.add(HIDDEN_CLASS);
+    notCompletedSvg.classList.remove(HIDDEN_CLASS);
+  }, 3000);
+
+  parentElement.classList.remove(MARKED_AS_DONE_CLASS)
+}
+
+function handleMarkDoneOrNotDone(event) {
+  const parentElement = event.target.closest('.accordion_item');
+
+  const markedAsDone = parentElement.classList.contains(MARKED_AS_DONE_CLASS);
+
+  if(markedAsDone) {
+    handleMarkAsNotDone(event);
+  }else {
+    handleMarkAsDone(event)
+  }
+}
+
+document.querySelectorAll('.action_btn').forEach(function(button) {
+  button.addEventListener('click', handleMarkDoneOrNotDone);
 });
