@@ -68,6 +68,29 @@ closeContent.addEventListener('click', () => {
   closeContent.style.display = 'none'
 })
 
+/*PROGRESS BAR*/
+
+const accordionItem = document.querySelectorAll('.accordion_item')
+const progressBar = document.getElementById('progress-bar');
+const itemsCompleted = document.getElementById('items-completed');
+let completedArr = [];
+
+
+function handleTaskCompletion() {
+  accordionItem.forEach(function(elem) {
+    if(elem.classList.contains('checkbox_done') && !completedArr.includes(elem)) {
+      completedArr.push(elem);
+    }
+  } );
+
+  let filteredArr = completedArr.filter(elem => elem.classList.contains('checkbox_done'));
+  
+  itemsCompleted.innerText = filteredArr.length;
+
+  progressBar.style.width = `${filteredArr.length * 20}%`;
+
+}
+
 /*ACCORDION*/
 
 // JavaScript to toggle the active class
@@ -108,7 +131,8 @@ function handleMarkAsDone(event) {
     completedSvg.classList.remove(HIDDEN_CLASS);
   }, 3000);
 
-  parentElement.classList.add(MARKED_AS_DONE_CLASS)
+  parentElement.classList.add(MARKED_AS_DONE_CLASS);
+
 }
 
 function handleMarkAsNotDone(event) {
@@ -125,10 +149,11 @@ function handleMarkAsNotDone(event) {
 
   setTimeout(() => {
     loadingSvg.classList.add(HIDDEN_CLASS);
-    notCompletedSvg.classList.remove(HIDDEN_CLASS);
+    notCompletedSvg.classList.remove(HIDDEN_CLASS);    
   }, 3000);
 
-  parentElement.classList.remove(MARKED_AS_DONE_CLASS)
+  parentElement.classList.remove(MARKED_AS_DONE_CLASS);
+
 }
 
 function handleMarkDoneOrNotDone(event) {
@@ -138,8 +163,18 @@ function handleMarkDoneOrNotDone(event) {
 
   if(markedAsDone) {
     handleMarkAsNotDone(event);
+
+    setTimeout(() => {
+      handleTaskCompletion();
+
+    }, 4000);
   }else {
-    handleMarkAsDone(event)
+    handleMarkAsDone(event);
+
+    setTimeout(() => {
+      handleTaskCompletion();
+      
+    }, 4000);
   }
 }
 

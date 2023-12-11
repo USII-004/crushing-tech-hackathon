@@ -226,6 +226,7 @@ header {
   position: fixed;
   top: 6rem;
   right: 1.5rem;
+  z-index: 10;
 }
 
 .dropdown_user_container {
@@ -399,6 +400,7 @@ header {
   position: fixed;
   top: 6rem;
   right: 1.5rem;
+  z-index: 10;
 }
 
 /* change position for desktop */
@@ -571,7 +573,7 @@ header {
 }
 
 .progress_bar {
-  width: 20%;
+  width: 0%;
   height: .5rem;
   background-color: #303030;
   /* border-radius: 8px; */
@@ -663,7 +665,7 @@ header {
 
 .accordion_not_completed_svg circle {
   stroke: #8A8A8A;
-  transition: all 100ms ease-in;
+  transition: all 300ms ease-in;
 }
 
 .accordion_item:hover .accordion_not_completed_svg circle {
