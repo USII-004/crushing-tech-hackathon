@@ -230,12 +230,11 @@ header {
   top: 6rem;
   right: 1.5rem;
   z-index: 10;
+  /* box-shadow: #000; */
 }
 
-.user_dropdown li {
-  border-radius: 8px;
-  margin: .2rem .1rem;
-}
+
+
 
 .dropdown_user_container {
   display: flex;
@@ -277,15 +276,15 @@ header {
   fill: #E1E1E1;
 }
 
-.dropdown_stores {
+.user_dropdown li a{
   display: flex;
   justify-content: left;
   align-items: center;
-  color: #303030;
   height: 2.2rem;
-  margin-top: .5rem;
   border-radius: 8px;
-  border-bottom: 1px solid #E1E1E1;
+  /* margin-top: .5rem; */
+  /* padding-left: .5rem; */
+  color: #303030;
 }
 
 .user_dropdown li a:hover {
@@ -299,6 +298,13 @@ header {
 .user_dropdown li a:focus {
   outline: 1px solid #005BD3;
   outline-offset: 1px;
+  background-color: #F7F7F7;
+}
+
+.dropdown_stores {
+  margin-top: .5rem;
+  border-bottom: 1px solid #E1E1E1;
+  /* padding: 0; */
 }
 
 .dropdown_stores_logo {
@@ -310,36 +316,36 @@ header {
   fill: #303030;
 }
 
-.dropdown_user_list ul li{
-  color: #303030;
-  padding: .5rem .3rem;
-  border: 1px solid transparent;
-  border-radius: 8px;
+.dropdown_help_center {
+  padding-left: .5rem;
 }
 
+.dropdown_changelog {
+  padding-left: .5rem;
+}
+
+.dropdown_community_forums {
+  padding-left: .5rem;
+}
+
+.dropdown_hire_shopify_partner {
+  padding-left: .5rem;
+}
+
+.dropdown_keyboard_shortcuts {
+  padding-left: .5rem;
+}
 
 .dropdown_user_account {
-  padding: .2rem .3rem;
-  color: #303030;
-  border-top: 1px solid #E1E1E1;
+  padding-left: .5rem;
 }
 
-.user_account_email_container {
-  padding: .5rem 0;
-  border-radius: 8px;
+.dropdown_manage_account {
+  padding-left: .5rem;
 }
 
-.user_account_email_container:hover {
-  background-color: #F7F7F7;
-}
-
-.user_account_email_container:active {
-  background-color: #F0F0F0;
-}
-
-.user_account_email_container:focus {
-  outline: 2px solid #005BD3;
-  outline-offset: 1px;
+.dropdown_logout {
+  padding-left: .5rem;
 }
 
 .user_account_name {
@@ -348,19 +354,8 @@ header {
 }
 
 .user_account_email {
+  font-weight: 400;
   color: #616161;
-}
-
-.manage_account_container {
-  padding: .5rem 0;
-  border-radius: 8px;
-  color: #303030;
-}
-
-.logout_container {
-  padding: .5rem 0;
-  border-radius: 8px;
-  color: #303030;
 }
 
 /* notification dropdown */
@@ -578,6 +573,8 @@ header {
   display: flex;
   justify-content: end;
   align-items: start;
+  border: none;
+  background-color: #fff;
 }
 
 .collapse_icon_close {
