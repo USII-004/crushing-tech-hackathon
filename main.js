@@ -12,6 +12,8 @@ let displayUserDropdown = false;
 function closeUserDropdown() {
   userIcon.ariaExpanded = 'false';
   userIcon.focus();
+  document.body.style.overflow = 'auto';
+
 }
 
 // the function below handles escape key press
@@ -51,6 +53,7 @@ function openUserDropdown() {
 
   userIcon.ariaExpanded = 'true';
   allUserDropdownItem.item(0).focus();
+  document.body.style.overflow = 'hidden';
 
   userDropdown.addEventListener('keyup', handleUserDropdownEscapekeyPress);
 
