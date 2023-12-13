@@ -89,6 +89,7 @@ header {
   padding: 0 6px;
   margin-right: .7rem;
   display: flex;
+  border: none;
   justify-content: center;
   align-items: center;
   transition: all 200ms ease-in;
@@ -99,8 +100,7 @@ header {
   color: #616161;
 }
 
-.notification_bell_container:active
-.notification_bell_container:focus {
+.notification_bell_container:active {
   background-color: #656266;
   color: #656266;
 }
@@ -108,6 +108,8 @@ header {
 .notification_bell_container:focus {
   outline: 2px solid #005BD3;
   outline-offset: 1px;
+  background-color: #656266;
+  color: #656266;
 }
 
 .user_info_container {
@@ -115,7 +117,7 @@ header {
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  border: 2px solid #1A1A1A;
+  border: none;
   color: #1A1A1A;
   border-radius: 8px;
   height: 32px;
@@ -128,8 +130,7 @@ header {
   color: #616161;
 }
 
-.user_info_container:active
-.user_info_container:focus {
+.user_info_container:active {
   background-color: #656266;
   color: #656266;
 }
@@ -137,6 +138,8 @@ header {
 .user_info_container:focus {
   outline: 2px solid #005BD3;
   outline-offset: 1px;
+  background-color: #656266;
+  color: #656266;
 } 
 
 .user_name {
@@ -149,7 +152,7 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: fit-content;
+  height: 100%;
   padding: .5rem;
   border-radius: 5px;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
@@ -221,12 +224,17 @@ header {
   margin: .5rem auto;
   background-color: #fff;
   border-radius: 8px;
-  padding: .2rem .1rem;
+  /* padding: .2rem .1rem; */
   display: none;
   position: fixed;
   top: 6rem;
   right: 1.5rem;
   z-index: 10;
+}
+
+.user_dropdown li {
+  border-radius: 8px;
+  margin: .2rem .1rem;
 }
 
 .dropdown_user_container {
@@ -280,16 +288,17 @@ header {
   border-bottom: 1px solid #E1E1E1;
 }
 
-.dropdown_stores:hover {
+.user_dropdown li a:hover {
   background-color: #F7F7F7;
 }
 
-.dropdown_stores:active {
+.user_dropdown li a:active {
   background-color: #F0F0F0;
 }
 
-.dropdown_stores:focus {
+.user_dropdown li a:focus {
   outline: 1px solid #005BD3;
+  outline-offset: 1px;
 }
 
 .dropdown_stores_logo {
@@ -308,17 +317,6 @@ header {
   border-radius: 8px;
 }
 
-.dropdown_user_list ul li:hover {
-  background-color: #F7F7F7;
-}
-
-.dropdown_user_list ul li:active {
-  background-color: #F0F0F0;
-}
-
-.dropdown_user_list ul li:focus {
-  outline: 2px solid #005BD3;
-}
 
 .dropdown_user_account {
   padding: .2rem .3rem;
@@ -341,6 +339,7 @@ header {
 
 .user_account_email_container:focus {
   outline: 2px solid #005BD3;
+  outline-offset: 1px;
 }
 
 .user_account_name {
@@ -358,34 +357,10 @@ header {
   color: #303030;
 }
 
-.manage_account_container:hover {
-  background-color: #F7F7F7;
-}
-
-.manage_account_container:active {
-  background-color: #F0F0F0;
-}
-
-.manage_account_container:focus {
-  outline: 2px solid #005BD3;
-}
-
 .logout_container {
   padding: .5rem 0;
   border-radius: 8px;
   color: #303030;
-}
-
-.logout_container:hover {
-  background-color: #F7F7F7;
-}
-
-.logout_container:active {
-  background-color: #F0F0F0;
-}
-
-.logout_container:focus {
-  border: 1px solid #005BD3;
 }
 
 /* notification dropdown */
@@ -451,6 +426,11 @@ header {
   text-align: center;
 }
 
+.active {
+  display: block;
+}
+
+
 /* =============== MAIN =============== */
 
 /* select plan */
@@ -486,6 +466,20 @@ header {
 
 .desktop_button {
   display: none;
+}
+
+.select_plan_close_btn {
+  background-color: #1A1A1A;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+}
+
+.select_plan_close_btn:focus {
+  outline: 2px solid #005BD3;
+  outline-offset: 1px;
 }
 
 .select_plan_close_icon {
