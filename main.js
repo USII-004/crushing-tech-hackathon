@@ -24,6 +24,7 @@ function handleUserDropdownEscapekeyPress(event) {
   }
 }
 
+
 function handleUserDropdownArrowKeypress(event, userDropdownIndex) {
   const isLastUserDropdownItem = userDropdownIndex === allUserDropdownItem.length - 1;
   const isFirstUserDropdownItem = userDropdownIndex === 0;
@@ -67,7 +68,7 @@ function openUserDropdown() {
 function userDropdownDisplay() {
   const isexpanded = userIcon.attributes['aria-expanded'].value == 'true';
 
-  userDropdown.classList.toggle('active');
+  userDropdown.classList.toggle('user_dropdown_active');
   userIcon.style.border = displayUserDropdown ? '2px solid #656266' : ''
   userIcon.style.backgroundColor = displayUserDropdown ? '#656266' : '';
 
@@ -96,14 +97,74 @@ userIcon.addEventListener('click', () => {
 
 const notificationBell = document.getElementById('notification-bell-container');
 const notificationDropdown = document.getElementById('notification-dropdown');
+const allNotificationDropdownItem = notificationDropdown.querySelectorAll('[role = "menuitem"]');
 
 let displayNotificationDropdown = false;
 
+function closeNotificationDropdown() {
+  notificationBell.ariaExpanded = 'false';
+  notificationBell.focus();
+  document.body.style.overflow = 'auto';
+
+}
+
+function handleNotificationDropdownEscapeKeyPress(event) {
+  if(event.key === 'Escape') {
+    notificationDropdownDisplay();
+  }
+}
+
+function handleNotificationDropdownArrowKeyPress(event, notificationDropdownIndex) {
+  const isLastNotificationDropdownItem = notificationDropdownIndex === allNotificationDropdownItem.length - 1;
+  const isFirstNotificationDropdownItem = notificationDropdownIndex === 0;
+
+  const nextNotificationDropdownItem = allNotificationDropdownItem.item(notificationDropdownIndex + 1);
+  const previousNotificationDropdownItem = allNotificationDropdownItem.item(notificationDropdownIndex - 1);
+
+  if(event.key === 'ArrowRight' || event.key === 'ArrowDown') {
+    if(isLastNotificationDropdownItem) {
+      allNotificationDropdownItem.item(0).focus();
+      return;
+    }
+    nextNotificationDropdownItem.focus()
+  }
+
+  if(event.key === 'ArrowLeft' || event.key === 'ArrowUp') {
+    if(isFirstNotificationDropdownItem) {
+      allNotificationDropdownItem.item(allNotificationDropdownItem.length - 1).focus();
+      return;
+    }
+    previousNotificationDropdownItem.focus();
+  }
+}
+
+function openNotificationDropdown() {
+
+  notificationBell.ariaExpanded = 'true';
+  allNotificationDropdownItem.item(0).focus();
+  document.body.style.overflow = 'hidden';
+
+  notificationDropdown.addEventListener('keyup', handleNotificationDropdownEscapeKeyPress);
+
+  allNotificationDropdownItem.forEach(function(item, itemIndex) {
+    item.addEventListener('keyup', function(event) {
+      handleNotificationDropdownArrowKeyPress(event, itemIndex);
+    });
+  })
+
+}
+
 function notificationDropdownDisplay() {
   const isexpanded = notificationBell.attributes['aria-expanded'].value == 'true';
-  notificationDropdown.classList.toggle('active');
+  
+  notificationDropdown.classList.toggle('notification_dropdown_active');
   notificationBell.style.backgroundColor = displayNotificationDropdown ? '#656266' : '';
-  notificationBell.ariaExpanded = isexpanded ? 'false' : 'true';
+  
+  if(isexpanded) {
+    closeNotificationDropdown();
+  }else {
+    openNotificationDropdown();
+  }
 }
 
 notificationBell.addEventListener('click', () => {

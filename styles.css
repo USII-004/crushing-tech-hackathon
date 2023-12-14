@@ -280,10 +280,10 @@ header {
   display: flex;
   justify-content: left;
   align-items: center;
-  height: 2.2rem;
   border-radius: 8px;
   /* margin-top: .5rem; */
-  /* padding-left: .5rem; */
+  padding-top: .3rem;
+  padding-bottom: .3rem;
   color: #303030;
 }
 
@@ -302,6 +302,7 @@ header {
 }
 
 .dropdown_stores {
+  height: 2.2rem;
   margin-top: .5rem;
   border-bottom: 1px solid #E1E1E1;
   /* padding: 0; */
@@ -317,6 +318,7 @@ header {
 }
 
 .dropdown_help_center {
+  margin-top: .5rem;
   padding-left: .5rem;
 }
 
@@ -334,10 +336,13 @@ header {
 
 .dropdown_keyboard_shortcuts {
   padding-left: .5rem;
+  border-bottom: 1px solid #E1E1E1;
 }
 
 .dropdown_user_account {
   padding-left: .5rem;
+  margin-top: .5rem;
+  /* height: fit-content; */
 }
 
 .dropdown_manage_account {
@@ -358,12 +363,16 @@ header {
   color: #616161;
 }
 
+.user_dropdown_active {
+  display: block;
+}
+
 /* notification dropdown */
 
 .notification_dropdown {
   width: 320px;
   margin: .5rem auto;
-  background-color: #fff;
+  background-color: #FFF;
   border-radius: 8px;
   padding: 1.5rem;
   display: none;
@@ -386,6 +395,7 @@ header {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 1.5rem;
+  /* background-color: #FFF; */
 }
 
 .notification_title {
@@ -395,12 +405,35 @@ header {
 
 .notification_icon {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
+  width: 4.2rem;
+}
+
+.notification_icon button {
+  border: none;
+  background-color: #FFF;
+  cursor: pointer;
+  border-radius: 2px;
+}
+
+.notification_icon button:hover {
+  background-color: #F7F7F7;
+}
+
+.notification_icon button:active {
+  background-color: #F0F0F0;
+}
+
+.notification_icon button:focus {
+  outline: 1px solid #005BD3;
+  outline-offset: 1px;
+  background-color: #F7F7F7;
 }
 
 .notification_icon1 {
-  margin-right: 1rem;
+  /* margin-right: 1rem; */
+  width: 2rem;
 }
 
 .notification_icon1 path {
@@ -412,19 +445,38 @@ header {
 }
 
 .notification_content {
-  background-color: #F1F1F1;
-  color: #303030;
-  height: 6rem;
-  padding: 1rem .5rem;
+  margin: 1rem .5rem;
+  border-radius: 8px;
+}
+
+.notification_content button {
+  border: none;
+  border-radius: 8px;
   font-size: 1.1rem;
   font-weight: 600;
   text-align: center;
+  color: #303030;
+  background-color: #F1F1F1;
+  padding: 1rem .5rem;
 }
 
-.active {
+.notification_content button:hover {
+  background-color: #F7F7F7;
+}
+
+.notification_content button:active {
+  background-color: #F0F0F0;
+}
+
+.notification_content button:focus {
+  outline: 1px solid #005BD3;
+  outline-offset: 1px;
+  background-color: #F7F7F7;
+}
+
+.notification_dropdown_active {
   display: block;
 }
-
 
 /* =============== MAIN =============== */
 
