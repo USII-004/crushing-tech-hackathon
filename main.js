@@ -66,13 +66,13 @@ function openUserDropdown() {
 }
 
 function userDropdownDisplay() {
-  const isexpanded = userIcon.attributes['aria-expanded'].value == 'true';
+  const isexpanded = userIcon.ariaExpanded;
 
   userDropdown.classList.toggle('user_dropdown_active');
   userIcon.style.border = displayUserDropdown ? '2px solid #656266' : ''
   userIcon.style.backgroundColor = displayUserDropdown ? '#656266' : '';
 
-  if(isexpanded) {
+  if(isexpanded === 'true') {
     closeUserDropdown();
   }else {
     openUserDropdown();
@@ -155,12 +155,12 @@ function openNotificationDropdown() {
 }
 
 function notificationDropdownDisplay() {
-  const isexpanded = notificationBell.attributes['aria-expanded'].value == 'true';
+  const isexpanded = notificationBell.ariaExpanded;
   
   notificationDropdown.classList.toggle('notification_dropdown_active');
   notificationBell.style.backgroundColor = displayNotificationDropdown ? '#656266' : '';
   
-  if(isexpanded) {
+  if(isexpanded === 'true') {
     closeNotificationDropdown();
   }else {
     openNotificationDropdown();
@@ -181,21 +181,78 @@ notificationBell.addEventListener('click', () => {
 
 /* OPEN/COLLAPSE STYLE GUIDE CONTENT */
 
+const styleGuideButton = document.getElementById('style-guide-collapse-icon');
 const openContent = document.getElementById('collapse-icon-open');
 const closeContent = document.getElementById('collapse-icon-close');
-const styleGuideContent = document.getElementById('style-guide-content-container');
+const styleGuideContent = document.getElementById('style-guide-accordion');
+const allStyleGuideContentItem = styleGuideContent.querySelectorAll('[role = "menuitem"]');
 
-openContent.addEventListener('click', () => {
+let styleGuideExpanded = true;
+
+
+function handleStyleGuideContentArrowKeypress(event, styleGuideContentIndex) {
+  const isLastStyleGuideContentItem = styleGuideContentIndex === allStyleGuideContentItem.length - 1;
+  const isFirstStyleGuideContentItem = styleGuideContentIndex === 0;
+
+  const nextStyleGuideContentItem = allStyleGuideContentItem.item(styleGuideContentIndex + 1);
+  const previousStyleGuideContentItem = allStyleGuideContentItem.item(styleGuideContentIndex - 1);
+
+  if(event.key === 'ArrowRight' || event.key === 'ArrowDown') {
+    if(isLastStyleGuideContentItem) {
+      allStyleGuideContentItem.item(0).focus();
+      return;
+    }
+    nextStyleGuideContentItem.focus()
+  }
+
+  if(event.key === 'ArrowLeft' || event.key === 'ArrowUp') {
+    if(isFirstStyleGuideContentItem) {
+      allStyleGuideContentItem.item(allStyleGuideContentItem.length - 1).focus();
+      return;
+    }
+    previousStyleGuideContentItem.focus();
+  }
+}
+
+function expandStyleGuide() {
   styleGuideContent.style.display = 'block';
   openContent.style.display = 'none';
-  closeContent.style.display = 'block'
-})
+  closeContent.style.display = 'block';
+  styleGuideExpanded = true;
 
-closeContent.addEventListener('click', () => {
+  styleGuideButton.ariaLabel = 'collapse style guide'
+  styleGuideButton.ariaExpanded = 'true'
+  
+  allStyleGuideContentItem.item(0).focus()
+
+  allStyleGuideContentItem.forEach(function(item, itemIndex) {
+    item.addEventListener('keyup', function(event) {
+      handleStyleGuideContentArrowKeypress(event, itemIndex);
+    });
+  })
+}
+
+function collapseStyleGuide() {
   styleGuideContent.style.display = 'none';
   openContent.style.display = 'block';
   closeContent.style.display = 'none'
-})
+  styleGuideExpanded = false;
+
+  styleGuideButton.ariaLabel = 'expand style guide'
+  styleGuideButton.ariaExpanded = 'false'
+}
+
+function handleStyleGuideExpandAndCollapse() {
+  if(styleGuideExpanded === true) {
+    collapseStyleGuide();
+    console.log('content collapsed')
+  }else {
+    expandStyleGuide()
+    console.log('content expanded')
+  }
+}
+
+styleGuideButton.addEventListener('click', handleStyleGuideExpandAndCollapse)
 
 /*PROGRESS BAR*/
 
@@ -227,9 +284,14 @@ const accordionHeader = document.querySelectorAll('.accordion_header');
 
 accordionHeader.forEach(function(header) {
   header.addEventListener('click', function() {
+    // close all other accordion
     accordionHeader.forEach(elem => elem.parentElement.classList.remove('active'));
+    accordionHeader.forEach(elem => elem.ariaExpanded = 'false');
+    
+    // expand currently clicked accordion
     var item = this.parentElement;
     item.classList.toggle('active');
+    this.ariaExpanded = 'true';
   });
 });
 

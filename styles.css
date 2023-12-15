@@ -44,9 +44,21 @@ header {
   width: 32px;
 }
 
+.shopify_logo:focus {
+  outline: 1px solid #005BD3;
+  outline-offset: 1px;
+}
+
 .desktop_shopify_logo{
   display: none;
 }
+
+.desktop_shopify_logo:focus {
+  outline: 1px solid #005BD3;
+  outline-offset: 1px;
+}
+
+/* Styling for the input box */
 
 .search_field{
   background-color: #616161;
@@ -54,21 +66,42 @@ header {
   color: #B5B5BF;
   margin: 0 8px;
 }
-/* Styling for the input box */
+
+.search_field:hover {
+  border: 1px solid #B5B5BF;
+}
+
+.search_field:focus {
+  outline: 1px solid #005BD3;
+  outline-offset: 1px;
+}
+
 .search-input {
   padding: 8px 40px;
   color: #B5B5BF;
-  border: 1px solid #B5B5BF;
+  /* border: 1px solid #B5B5BF; */
   border-radius: 8px;
+  border: 1px solid transparent;
   width: 18rem;
   background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%23212121" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" /></svg>') no-repeat 1% center;
   background-size: 30px 25px; /* Adjust size as needed */
   /* filter: brightness(500%); Adjust the brightness to change the color */
 }
 
-.search-input:hover{
-  border: 2px solid #B5B5BF;
+.search_field:hover {
+  border: 1px solid #B5B5BF;
 }
+
+.search_field:active {
+  background-color: #F0F0F0;
+}
+
+.search_field:focus {
+  outline: 1px solid #005BD3;
+  outline-offset: 1px;
+}
+
+/* User notification and name container */
 
 .user_container{
   display: flex;
@@ -232,9 +265,6 @@ header {
   z-index: 10;
   /* box-shadow: #000; */
 }
-
-
-
 
 .dropdown_user_container {
   display: flex;
@@ -499,16 +529,30 @@ header {
 .select_plan_button {
   display: flex;
   justify-content: space-between;
-  /* align-items: center; */
+  align-items: center;
 }
 
 .mobile_button {
   padding: 7px 14px;
   font-size: 1.2rem;
-  border-radius: 7px;
+  border-radius: 8px;
   border: 1px solid #E3E3E3;
   margin-top: 1.5rem;
   cursor: pointer;
+}
+
+.mobile_button:hover {
+  background-color: #F0F0F0;
+}
+
+.mobile_button:active {
+  background-color: #F0F0F0;
+}
+
+.mobile_button:focus {
+  outline: 1px solid #005BD3;
+  outline-offset: 1px;
+  background-color: #F7F7F7;
 }
 
 .desktop_button {
@@ -520,8 +564,9 @@ header {
   border: none;
   display: flex;
   align-items: center;
+  height: max-content;
   justify-content: center;
-  border-radius: 8px;
+  border-radius: 4px;
 }
 
 .select_plan_close_btn:focus {
@@ -565,6 +610,20 @@ header {
     border: 1px solid #E3E3E3;
     margin: 0 1.2rem;
     cursor: pointer;
+  }
+
+  .desktop_button:hover {
+    background-color: #F0F0F0;
+  }
+  
+  .desktop_button:active {
+    background-color: #F0F0F0;
+  }
+  
+  .desktop_button:focus {
+    outline: 1px solid #005BD3;
+    outline-offset: 1px;
+    background-color: #F7F7F7;
   }
 
   .select_plan_close_icon {
@@ -627,6 +686,12 @@ header {
   align-items: start;
   border: none;
   background-color: #fff;
+  border-radius: 4px;
+}
+
+.style_guide_collapse_icon:focus {
+  outline: 2px solid #005BD3;
+  outline-offset: 1px;
 }
 
 .collapse_icon_close {
@@ -673,7 +738,7 @@ header {
 .accordion_item {
   /* border: 1px solid #F3F3F3; */
   margin-bottom: 5px;
-  padding: .7rem;
+  margin: .7rem;
   /* background-color: #F3F3F3; */
   border-radius: 10px;
   font-size: 1.1rem;
@@ -685,11 +750,20 @@ header {
 }
 
 .accordion_header {
-  /* background-color: #f1f1f1; */
-  /* padding: 10px; */
+  background-color: transparent;
   cursor: pointer;
   display: flex;
   align-items: center;
+  padding: .5rem 0;
+  width: 100%;
+  border: none;
+  border-radius: 8px;
+}
+
+.accordion_header:focus {
+  outline: 2px solid #005BD3;
+  outline-offset: 1px;
+  background-color: #F1F1F1;
 }
 
 .accordion_svg_container {
@@ -715,7 +789,7 @@ header {
   stroke-dasharray: 0 0;
 }
 
-.accordion_item:focus .accordion_not_completed_svg circle {
+.accordion_header:focus .accordion_not_completed_svg circle {
   fill: #d9d9d9;
   stroke-dasharray: 0 0;
 }
