@@ -240,10 +240,8 @@ function collapseStyleGuide() {
 function handleStyleGuideExpandAndCollapse() {
   if(styleGuideExpanded === true) {
     collapseStyleGuide();
-    console.log('content collapsed')
   }else {
     expandStyleGuide()
-    console.log('content expanded')
   }
 }
 

@@ -65,6 +65,7 @@ header {
   border-radius: 8px;
   color: #B5B5BF;
   margin: 0 8px;
+  border: 1px solid transparent;
 }
 
 .search_field:hover {
