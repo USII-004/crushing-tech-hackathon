@@ -854,6 +854,7 @@ header {
 
 .external_link {
   color: #005BD3;
+  border-radius: 2px;
 }
 
 .action_btn {
@@ -885,6 +886,11 @@ header {
 
 .active {
   background-color: #F1F1F1;
+}
+
+.accordion_content_element:focus {
+  outline: 2px solid #005BD3;
+  outline-offset: 1px;
 }
 
 @media(min-width: 992px) {

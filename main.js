@@ -225,11 +225,6 @@ function expandStyleGuide() {
   
   allStyleGuideContentItem.item(0).focus()
 
-  allStyleGuideContentItem.forEach(function(item, itemIndex) {
-    item.addEventListener('keyup', function(event) {
-      handleStyleGuideContentArrowKeypress(event, itemIndex);
-    });
-  })
 }
 
 function collapseStyleGuide() {
@@ -253,6 +248,14 @@ function handleStyleGuideExpandAndCollapse() {
 }
 
 styleGuideButton.addEventListener('click', handleStyleGuideExpandAndCollapse)
+
+if(styleGuideExpanded === true) {
+  allStyleGuideContentItem.forEach(function(item, itemIndex) {
+    item.addEventListener('keyup', function(event) {
+      handleStyleGuideContentArrowKeypress(event, itemIndex);
+    });
+  })
+}
 
 /*PROGRESS BAR*/
 
@@ -282,16 +285,41 @@ function handleTaskCompletion() {
 // JavaScript to toggle the active class
 const accordionHeader = document.querySelectorAll('.accordion_header');
 
+
 accordionHeader.forEach(function(header) {
   header.addEventListener('click', function() {
     // close all other accordion
-    accordionHeader.forEach(elem => elem.parentElement.classList.remove('active'));
-    accordionHeader.forEach(elem => elem.ariaExpanded = 'false');
+    accordionHeader.forEach(function(elem) {
+      if (elem !== header) {
+        elem.parentElement.classList.remove('active');
+        elem.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    // keep currently clicked accordion open
+    
+    // this.parentElement.classList.add('active');
+    // this.ariaExpanded = 'true';
     
     // expand currently clicked accordion
     var item = this.parentElement;
-    item.classList.toggle('active');
-    this.ariaExpanded = 'true';
+
+    if(item.classList.contains('active')) {
+      item.classList.remove('active');
+      this.ariaExpanded = 'false';
+    }else {
+      item.classList.add('active');
+      this.ariaExpanded = 'true';
+    }
+
+    if(this.ariaExpanded === 'true') {
+      const accordionContent = this.parentElement.querySelector('.accordion_content');
+      const accordionMainContent = accordionContent.querySelector('.accordion_main_content');
+      const accordionMainContentElements = accordionMainContent.querySelectorAll('.accordion_content_element')
+
+      accordionMainContentElements.item(0).focus();
+
+    }
   });
 });
 
