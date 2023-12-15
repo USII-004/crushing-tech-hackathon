@@ -321,6 +321,8 @@ function expandAccordion(elem) {
   const accordionContent = elem.parentElement.querySelector('.accordion_content');
   const accordionMainContent = accordionContent.querySelector('.accordion_main_content');
   const accordionMainContentElements = accordionMainContent.querySelectorAll('.accordion_content_element');
+  const actionBtn = accordionMainContentElements.item(1);
+
 
   accordionMainContentElements.item(0).focus();
 
@@ -371,6 +373,8 @@ function handleMarkAsDone(event) {
   // Get the parent element of the button clicked
   const parentElement = event.target.closest('.accordion_item');
 
+  const statusElement = parentElement.querySelector('.accordion_item_status');
+
   // Find the SVG elements within the parent element
   const notCompletedSvg = parentElement.querySelector('.accordion_not_completed_svg');
   const loadingSvg = parentElement.querySelector('.accordion_loading_svg');
@@ -380,9 +384,15 @@ function handleMarkAsDone(event) {
   notCompletedSvg.classList.add(HIDDEN_CLASS);
   loadingSvg.classList.remove(HIDDEN_CLASS);
 
+  statusElement.ariaLabel = 'loading please wait';
+
   setTimeout(() => {
     loadingSvg.classList.add(HIDDEN_CLASS);
     completedSvg.classList.remove(HIDDEN_CLASS);
+
+    event.target.ariaLabel = event.target.ariaLabel.replace("as not done", "as done");
+    
+    statusElement.ariaLabel = 'successfully marked as done';
   }, 3000);
 
   parentElement.classList.add(MARKED_AS_DONE_CLASS);
@@ -393,6 +403,9 @@ function handleMarkAsNotDone(event) {
   // Get the parent element of the button clicked
   const parentElement = event.target.closest('.accordion_item');
 
+  // Get status listener of the button clicked
+  const statusElement = parentElement.querySelector('.accordion_item_status');
+
   // Find the SVG elements within the parent element
   const notCompletedSvg = parentElement.querySelector('.accordion_not_completed_svg');
   const loadingSvg = parentElement.querySelector('.accordion_loading_svg');
@@ -401,9 +414,15 @@ function handleMarkAsNotDone(event) {
   completedSvg.classList.add(HIDDEN_CLASS);
   loadingSvg.classList.remove(HIDDEN_CLASS);
 
+  statusElement.ariaLabel = 'loading please wait'
+
   setTimeout(() => {
     loadingSvg.classList.add(HIDDEN_CLASS);
-    notCompletedSvg.classList.remove(HIDDEN_CLASS);    
+    notCompletedSvg.classList.remove(HIDDEN_CLASS);
+    
+    event.target.ariaLabel = event.target.ariaLabel.replace("as done", "as not done");
+    
+    statusElement.ariaLabel = 'successfully marked as not done';
   }, 3000);
 
   parentElement.classList.remove(MARKED_AS_DONE_CLASS);

@@ -70,6 +70,7 @@
           aria-haspopup="true"
           aria-expanded="false"
           aria-controls="notification-dropdown"
+          aria-label="notification dropdown icon button"
         >
           <svg width="41" height="40" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="notification_bell">
             <path fill-rule="evenodd" clip-rule="evenodd" d="M7.75203 14.4239L5.3061 14.1427C3.45144 13.9295 2.92542 11.4844 4.52838 10.5274L4.5933 10.4886C5.466 9.96761 6.00045 9.02609 6.00045 8.00969V7.5C6.00045 5.01472 8.01517 3 10.5005 3C12.9857 3 15.0005 5.01472 15.0005 7.5V8.00969C15.0005 9.02609 15.5349 9.96761 16.4076 10.4886L16.4725 10.5274C18.0755 11.4844 17.5495 13.9295 15.6948 14.1427L13.152 14.435V14.8C13.152 16.2912 11.9432 17.5 10.452 17.5C8.96086 17.5 7.75203 16.2912 7.75203 14.8V14.4239ZM11.652 14.5H9.25203V14.8C9.25203 15.4627 9.78929 16 10.452 16C11.1148 16 11.652 15.4627 11.652 14.8V14.5ZM8.50045 13H12.5005L15.5235 12.6525C15.953 12.6032 16.0748 12.0369 15.7036 11.8153L15.6387 11.7766C15.5591 11.7291 15.4815 11.6793 15.4057 11.6273C15.2506 11.521 15.1036 11.4055 14.9651 11.2818C14.9405 11.2598 14.9162 11.2377 14.8922 11.2152C14.0144 10.395 13.5005 9.23833 13.5005 8.00969V7.5C13.5005 5.84315 12.1573 4.5 10.5005 4.5C8.8436 4.5 7.50045 5.84315 7.50045 7.5V8.00969C7.50045 9.23833 6.98651 10.395 6.10871 11.2152C6.08469 11.2377 6.06039 11.2598 6.03583 11.2818C5.89734 11.4055 5.75029 11.521 5.59523 11.6273C5.51945 11.6793 5.44176 11.7291 5.36222 11.7766L5.29729 11.8153C4.9261 12.0369 5.0479 12.6032 5.47739 12.6525L8.50045 13Z" fill="#fff"/>
@@ -81,6 +82,7 @@
           aria-haspopup="true"
           aria-expanded="false"
           aria-controls="user-dropdown"
+          aria-label="user dropdown icon button"
         >
           <p class="user_name">Davii Collection</p>
           <div class="user_icon">
@@ -243,7 +245,7 @@
       <div class="notification_content">
         <button
           role="menuitem"
-          aria-label="expand notification button"
+          aria-label="expand notification message button"
         >
         <p class="notification_message">Alerts about your store and account will show here</p>
       </button>
@@ -300,6 +302,7 @@
           aria-haspopup="true"
           aria-controls="style-guide-accordion"
           aria-expanded="true"
+          aria-label="collapse style guide"
         >
           <svg 
             width="41" 
@@ -337,15 +340,27 @@
           role="menu"
         >
           <li class="accordion_item">
+            <span 
+              class="accordion_item_status"
+              aria-live="polite"
+            ></span>
             <button 
               class="accordion_header"
               id="customise-online-store-btn"
-              aria-expanded="true"
+              aria-expanded="false"
               aria-controls="customise-online-store"
               role="menuitem"
+              aria-label="click to expand customise your online store accordion"
             >
               <div class="accordion_svg_container">
-                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 32 32" fill="none" class="accordion_not_completed_svg" id="accordion-not-completed-svg">
+                <svg 
+                  xmlns="http://www.w3.org/2000/svg" 
+                  width="40" height="40" 
+                  viewBox="0 0 32 32" 
+                  fill="none" 
+                  class="accordion_not_completed_svg" 
+                  id="accordion-not-completed-svg"
+                >
                   <circle 
                     cx="16" 
                     cy="16" 
@@ -387,7 +402,10 @@
             >
               <div class="accordion_main_content">
                 <p>Choose a theme and add your logo, colors, and images to reflect your brand. <a href="#" class="external_link accordion_content_element">Learn more</a></p>
-                <button class="action_btn accordion_content_element">Customize theme</button>
+                <button 
+                  aria-label="mark customize your online store as done"
+                  class="action_btn accordion_content_element"
+                >Customize theme</button>
               </div>
               <div class="extra_desktop_view">
                 <img src="https://crushingit.tech/hackathon-assets/customise-store.png" alt="customize store png" class="desktop_img">
@@ -395,12 +413,17 @@
             </div>
           </li>
           <li class="accordion_item">
+            <span 
+              class="accordion_item_status"
+              aria-live="polite"
+            ></span>
             <button 
               class="accordion_header"
               id="add-first-product-btn"
               aria-expanded="false"
               aria-controls="add-first-product"
               role="menuitem"
+              aria-label="click to expand add your first product accordion"
             >
               <div class="accordion_svg_container">
                 <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 32 32" fill="none" class="accordion_not_completed_svg" id="accordion-not-completed-svg">
@@ -445,7 +468,10 @@
             >
               <div class="accordion_main_content">
                 <p>Write a description, add photos, and set pricing for the products you plan to sell. <a href="#" class="external_link accordion_content_element">Learn more</a></p>
-                <button class="action_btn accordion_content_element">Add product</button>
+                <button 
+                  aria-label="mark add your first product as done"
+                  class="action_btn accordion_content_element"
+                >Add product</button>
               </div>
               <div class="extra_desktop_view">
                 <img src="https://crushingit.tech/hackathon-assets/product.png" alt="add your first product png" class="desktop_img">
@@ -453,11 +479,16 @@
             </div>
           </li>
           <li class="accordion_item">
+            <span 
+              class="accordion_item_status"
+              aria-live="polite"
+            ></span>
             <button 
               class="accordion_header"
               id="add-custom-domain-btn"
               aria-expanded="false"
               aria-controls="add-custom-domain"
+              aria-label="click to expand add a custom domain accordion"
               role="menuitem"
             >
               <div class="accordion_svg_container">
@@ -503,7 +534,10 @@
             >
               <div class="accordion_main_content">
                 <p>Your current domain is 222219.myshopify.com but you can add a custom domain to help customers find your online store. <a href="#" class="external_link accordion_content_element">Learn more</a></p>
-                <button class="action_btn accordion_content_element">Add domain</button>
+                <button 
+                  aria-label="mark add custom domain as done"
+                  class="action_btn accordion_content_element"
+                >Add domain</button>
               </div>
               <div class="extra_desktop_view">
                 <img src="https://crushingit.tech/hackathon-assets/website.png" alt="add custom domain png" class="desktop_img">
@@ -511,11 +545,16 @@
             </div>
           </li>
           <li class="accordion_item">
+            <span 
+              class="accordion_item_status"
+              aria-live="polite"
+            ></span>
             <button 
               class="accordion_header"
               id="name-store-btn"
               aria-expanded="false"
               aria-controls="name-store"
+              aria-label="click to expand name your store accordion"
               role="menuitem"
             >
               <div class="accordion_svg_container">
@@ -561,7 +600,10 @@
             >
               <div class="accordion_main_content">
                 <p>Your temporary store name is currently Davii collections. The store name appears in your admin and your online store. <a href="#" class="external_link accordion_content_element">Learn more</a></p>
-                <button class="action_btn accordion_content_element">Name store</button>
+                <button 
+                  aria-label="mark name your store as done"
+                  class="action_btn accordion_content_element"
+                >Name store</button>
               </div>
               <div class="extra_desktop_view">
                 <img src="https://crushingit.tech/hackathon-assets/name-store.png" alt="name your store png" class="desktop_img">
@@ -569,11 +611,16 @@
             </div>
           </li>
           <li class="accordion_item">
+            <span 
+              class="accordion_item_status"
+              aria-live="polite"
+            ></span>
             <button 
               class="accordion_header"
               id="set-payment-provider-btn"
               aria-expanded="false"
               aria-controls="set-payment-provider"
+              aria-label="click to expand set up payment provider accordion"
               role="menuitem"
             >
               <div class="accordion_svg_container">
@@ -619,7 +666,10 @@
             >
               <div class="accordion_main_content">
                 <p>Choose a payment provider to start accepting payments. You’ll need to create an account with the payment provider and set it up with your Shopify store. <a href="#" class="external_link accordion_content_element">Learn more</a></p>
-                <button class="action_btn accordion_content_element">Set up payment</button>
+                <button 
+                  class="action_btn accordion_content_element"
+                  aria-label="mark set up payment provider as done"
+                >Set up payment</button>
               </div>
               <div class="extra_desktop_view">
                 <img src="https://crushingit.tech/hackathon-assets/payment.png" alt="set up payment provider png" class="desktop_img">
