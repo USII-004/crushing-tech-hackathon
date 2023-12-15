@@ -285,43 +285,78 @@ function handleTaskCompletion() {
 // JavaScript to toggle the active class
 const accordionHeader = document.querySelectorAll('.accordion_header');
 
+function collapseAccordion(elem) {
+  elem.parentElement.classList.remove('active');
+  elem.setAttribute('aria-expanded', 'false');
+}
 
-accordionHeader.forEach(function(header) {
-  header.addEventListener('click', function() {
-    // close all other accordion
-    accordionHeader.forEach(function(elem) {
-      if (elem !== header) {
-        elem.parentElement.classList.remove('active');
-        elem.setAttribute('aria-expanded', 'false');
-      }
-    });
+function handleAccordionArrowKeyPress(event, allAccordionContentElement, accordionContentElementIndex) {
+  const isLastAccordionContentElement = accordionContentElementIndex === allAccordionContentElement.length - 1;
+  const isFirstAccordionContentElement = accordionContentElementIndex === 0;
 
-    // keep currently clicked accordion open
-    
-    // this.parentElement.classList.add('active');
-    // this.ariaExpanded = 'true';
-    
-    // expand currently clicked accordion
-    var item = this.parentElement;
+  const nextAccordionContentElement = allAccordionContentElement.item(accordionContentElementIndex + 1);
+  const previousAccordionContentElement = allAccordionContentElement.item(accordionContentElementIndex - 1);
 
-    if(item.classList.contains('active')) {
-      item.classList.remove('active');
-      this.ariaExpanded = 'false';
-    }else {
-      item.classList.add('active');
-      this.ariaExpanded = 'true';
+  if (event.key === 'ArrowRight' || event.key === 'ArrowDown') {
+    if (isLastAccordionContentElement) {
+      allAccordionContentElement.item(0).focus();
+      return;
     }
+    nextAccordionContentElement.focus();
+  }
 
-    if(this.ariaExpanded === 'true') {
-      const accordionContent = this.parentElement.querySelector('.accordion_content');
-      const accordionMainContent = accordionContent.querySelector('.accordion_main_content');
-      const accordionMainContentElements = accordionMainContent.querySelectorAll('.accordion_content_element')
+  if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') {
+    if (isFirstAccordionContentElement) {
+      allAccordionContentElement.item(allAccordionContentElement.length - 1).focus();
+      return;
+    }
+    previousAccordionContentElement.focus();
+  }
+}
 
-      accordionMainContentElements.item(0).focus();
+function expandAccordion(elem) {
+  elem.parentElement.classList.add('active');
+  elem.setAttribute('aria-expanded', 'true');
 
+  const accordionContent = elem.parentElement.querySelector('.accordion_content');
+  const accordionMainContent = accordionContent.querySelector('.accordion_main_content');
+  const accordionMainContentElements = accordionMainContent.querySelectorAll('.accordion_content_element');
+
+  accordionMainContentElements.item(0).focus();
+
+  accordionMainContentElements.forEach(item => item.addEventListener('keyup', () => {
+    elem.focus();
+  }));
+
+  accordionMainContentElements.forEach(function (item, accordionContentElementIndex) {
+    item.addEventListener('keyup', function (event) {
+      handleAccordionArrowKeyPress(event, accordionMainContentElements, accordionContentElementIndex);
+    });
+  });
+}
+
+function handleExpandAndCollapseAccordion(clickedElem) {
+  // close all other accordion
+  accordionHeader.forEach(function (elem) {
+    if (elem !== clickedElem) {
+      elem.parentElement.classList.remove('active');
+      elem.setAttribute('aria-expanded', 'false');
     }
   });
+
+  if (clickedElem.parentElement.classList.contains('active')) {
+    collapseAccordion(clickedElem);
+  } else {
+    expandAccordion(clickedElem);
+  }
+}
+
+accordionHeader.forEach(function(header) {
+  header.addEventListener('click', function () {
+    handleExpandAndCollapseAccordion(header);
+  });
 });
+
 
 // change the accordion svg icons
 const HIDDEN_CLASS = 'hidden';
