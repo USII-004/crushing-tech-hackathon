@@ -388,7 +388,7 @@ function handleMarkAsDone(event) {
     loadingSvg.classList.add(HIDDEN_CLASS);
     completedSvg.classList.remove(HIDDEN_CLASS);
 
-    event.target.ariaLabel = event.target.ariaLabel.replace("as not done", "as done");
+    event.target.ariaLabel = event.target.ariaLabel.replace("as done", "as not done");
     
     statusElement.ariaLabel = 'successfully marked as done';
   }, 3000);
@@ -418,7 +418,7 @@ function handleMarkAsNotDone(event) {
     loadingSvg.classList.add(HIDDEN_CLASS);
     notCompletedSvg.classList.remove(HIDDEN_CLASS);
     
-    event.target.ariaLabel = event.target.ariaLabel.replace("as done", "as not done");
+    event.target.ariaLabel = event.target.ariaLabel.replace("as not done", "as done");
     
     statusElement.ariaLabel = 'successfully marked as not done';
   }, 3000);
